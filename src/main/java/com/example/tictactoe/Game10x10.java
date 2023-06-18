@@ -513,63 +513,92 @@ public class Game10x10 {
                 return false;
         }
     }
-
-    public static boolean winFirstDiagonal(char[][] board10x10, char symbol) {
-        int dim = board10x10.length;
-        for (int i = 0; i < dim; i++) {
-            if (board10x10[i][i] != symbol) {
-                return false;
-            }
-        }
-        return true;
-    }
-    public static boolean winSecondDiagonal(char[][] board10x10, char symbol) {
-        int dim = board10x10.length;
-        for (int i = 0; i < dim; i++) {
-            if (board10x10[i][dim - i - 1] != symbol) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static boolean winRows(char[][] board10x10, char symbol) {
-        int dim = board10x10.length;
-        for (int row = 0; row < dim; row++) {
-            boolean win = true;
-            for (int col = 0; col < dim; col++) {
-                if (board10x10[row][col] != symbol) {
-                    win = false;
-                    break;
-                }
-            }
-            if (win) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean winColumns(char[][] board10x10, char symbol) {
-        int dim = board10x10.length;
-        for (int col = 0; col < dim; col++) {
-            boolean win = true;
-            for (int row = 0; row < dim; row++) {
-                if (board10x10[row][col] != symbol) {
-                    win = false;
-                    break;
-                }
-            }
-            if (win) {
-                return true;
-            }
-        }
-        return false;
-    }
+    
     public static boolean allWins(char[][] board10x10, char symbol) {
-        return winFirstDiagonal(board10x10, symbol) ||
-                winSecondDiagonal(board10x10, symbol) ||
-                winRows(board10x10, symbol) ||
-                winColumns(board10x10, symbol);
+        // Check rows
+        if (winInRows(board10x10, symbol)) return true;
+
+        // Check columns
+        if (winInColumns(board10x10, symbol)) return true;
+
+        // Check diagonals (top-left to bottom-right)
+        if (winInFirstDiagonal(board10x10, symbol)) return true;
+
+        // Check diagonals (top-right to bottom-left)
+        if (winInSecondDiagonal(board10x10, symbol)) return true;
+
+        return false;
+    }
+
+    private static boolean winInSecondDiagonal(char[][] board10x10, char symbol) {
+        for (int row = 0; row < 6; row++) {
+            for (int col = 4; col < 10; col++) {
+                boolean win = true;
+                for (int i = 0; i < 5; i++) {
+                    if (board10x10[row + i][col - i] != symbol) {
+                        win = false;
+                        break;
+                    }
+                }
+                if (win) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private static boolean winInFirstDiagonal(char[][] board10x10, char symbol) {
+        for (int row = 0; row < 6; row++) {
+            for (int col = 0; col < 6; col++) {
+                boolean win = true;
+                for (int i = 0; i < 5; i++) {
+                    if (board10x10[row + i][col + i] != symbol) {
+                        win = false;
+                        break;
+                    }
+                }
+                if (win) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private static boolean winInColumns(char[][] board10x10, char symbol) {
+        for (int col = 0; col < 10; col++) {
+            for (int row = 0; row < 6; row++) {
+                boolean win = true;
+                for (int i = 0; i < 5; i++) {
+                    if (board10x10[row + i][col] != symbol) {
+                        win = false;
+                        break;
+                    }
+                }
+                if (win) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private static boolean winInRows(char[][] board10x10, char symbol) {
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 6; col++) {
+                boolean win = true;
+                for (int i = 0; i < 5; i++) {
+                    if (board10x10[row][col + i] != symbol) {
+                        win = false;
+                        break;
+                    }
+                }
+                if (win) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
