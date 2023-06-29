@@ -64,15 +64,14 @@ public class TicTacToe extends Application {
         Scene scene;
         if (game.getBoardSize() == 10) {
             scene = new Scene(root, 1000, 1000);
-            primaryStage.setTitle("Tic Tac Toe");
             primaryStage.setScene(scene);
-            primaryStage.show();
         } else if (game.getBoardSize() == 3) {
             scene = new Scene(root, 400, 350);
-            primaryStage.setTitle("Tic Tac Toe");
             primaryStage.setScene(scene);
-            primaryStage.show();
         }
+        primaryStage.setTitle("Tic Tac Toe");
+        primaryStage.show();
+
         statusScore = new Label("Scores");
         statusScore.setStyle("-fx-font-size: 30px; -fx-padding: 2px;");
         if (game.getBoardSize() == 10) {
