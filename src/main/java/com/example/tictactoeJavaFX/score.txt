@@ -1,5 +1,2 @@
-Player: 3
-Player: 5
-Player: 9
-Player: 3
 
+Player: 2

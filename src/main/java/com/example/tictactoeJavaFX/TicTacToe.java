@@ -61,24 +61,41 @@ public class TicTacToe extends Application {
 
         Pane root = new Pane();
         root.getChildren().addAll(gridPane, statusLabel);
-
-        Scene scene = new Scene(root, 1000, 1000);
-
+        Scene scene;
+        if (game.getBoardSize() == 10) {
+            scene = new Scene(root, 1000, 1000);
+            primaryStage.setTitle("Tic Tac Toe");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } else if (game.getBoardSize() == 3) {
+            scene = new Scene(root, 400, 350);
+            primaryStage.setTitle("Tic Tac Toe");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
         statusScore = new Label("Scores");
         statusScore.setStyle("-fx-font-size: 30px; -fx-padding: 2px;");
-        statusScore.setTranslateX(860);
-        statusScore.setTranslateY(20);
+        if (game.getBoardSize() == 10) {
+            statusScore.setTranslateX(860);
+            statusScore.setTranslateY(20);
+        } else if (game.getBoardSize() == 3) {
+            statusScore.setTranslateX(280);
+            statusScore.setTranslateY(20);
+        }
         root.getChildren().add(statusScore);
 
-        primaryStage.setTitle("Tic Tac Toe");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+
 
 
         resetButton = new Button("Reset Game");
         resetButton.setOnAction(e -> startNewGame());
-        resetButton.setTranslateX(550);
-        resetButton.setTranslateY(860);
+        if (game.getBoardSize() == 10) {
+            resetButton.setTranslateX(550);
+            resetButton.setTranslateY(860);
+        } else if (game.getBoardSize() == 3) {
+            resetButton.setTranslateX(20);
+            resetButton.setTranslateY(300);
+        }
         root.getChildren().add(resetButton);
 
         Button newGameButton = createNewGameButton();
@@ -88,15 +105,19 @@ public class TicTacToe extends Application {
         root.getChildren().add(exitButton);
 
         base.getScoreDisplay().setPrefWidth(100);
-        base.getScoreDisplay().setPrefHeight(400);
+        base.getScoreDisplay().setPrefHeight(200);
         base.getScoreDisplay().setMouseTransparent(true);
         base.getScoreDisplay().setFocusTraversable(false);
-        base.getScoreDisplay().setTranslateX(860);
-        base.getScoreDisplay().setTranslateY(80);
+        if (game.getBoardSize() == 10) {
+            base.getScoreDisplay().setTranslateX(860);
+            base.getScoreDisplay().setTranslateY(80);
+        } else if (game.getBoardSize() == 3) {
+            base.getScoreDisplay().setTranslateX(275);
+            base.getScoreDisplay().setTranslateY(80);
+        }
         root.getChildren().add(base.getScoreDisplay());
 
     }
-
     private void showBoardSizeDialog() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Choose Board Size");
@@ -154,8 +175,13 @@ public class TicTacToe extends Application {
             TicTacToe newGame = new TicTacToe();
             newGame.start(new Stage());
         });
-        newGameButton.setTranslateX(650);
-        newGameButton.setTranslateY(860);
+        if (game.getBoardSize() == 10) {
+            newGameButton.setTranslateX(650);
+            newGameButton.setTranslateY(860);
+        } else if (game.getBoardSize() == 3) {
+            newGameButton.setTranslateX(110);
+            newGameButton.setTranslateY(300);
+        }
         return newGameButton;
     }
 
@@ -170,11 +196,16 @@ public class TicTacToe extends Application {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 Stage stage = (Stage) exitButton.getScene().getWindow();
-                stage.close(); // close app
+                stage.close();
             }
         });
-        exitButton.setTranslateX(750);
-        exitButton.setTranslateY(860);
+        if (game.getBoardSize() == 10) {
+            exitButton.setTranslateX(750);
+            exitButton.setTranslateY(860);
+        } else if (game.getBoardSize() == 3) {
+            exitButton.setTranslateX(195);
+            exitButton.setTranslateY(300);
+        }
         return exitButton;
     }
 
