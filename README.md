@@ -13,5 +13,5 @@ The game has 2 versions: displayed in the console and with a graphical interface
  - On a 10x10 board, victory occurs with 5 adjacent symbols in a straight line,
  - Rest Game button resets the board starting a new game on that board,
  - The New Game button starts a new game with an initial message about choosing a board size,
- - Exit Game button closes the application
- - Scoreboard displays the player's counted victories
+ - Exit Game button closes the application,
+ - Scoreboard displays the player's counted victories.
