@@ -7,3 +7,10 @@
  - JavaFX
 
 ## 3.Application features
+ - Playing with the computer,
+ - Choice of board size 3x3 or 10x10,
+ - On a 10x10 board, victory occurs with 5 adjacent symbols in a straight line,
+ - Rest Game button resets the board starting a new game on that board,
+ - The New Game button starts a new game with an initial message about choosing a board size,
+ - Exit Game button closes the application
+ - Scoreboard displays the player's counted victories
