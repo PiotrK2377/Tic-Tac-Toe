@@ -9,8 +9,7 @@ The game has 2 versions: displayed in the console and with a graphical interface
 
 ## 3.Application features
  - Playing with the computer,
- - Choice of board size 3x3 or 10x10,
-  ![BoardsChoose](./src/main/resources/templates/pictures/Start%20Game%201.png)
+ - Choice of board size 3x3 or 10x10,![BoardsChoose](./src/main/resources/templates/pictures/Start%20Game%201.png)
  - Board 3x3,
    ![Board3x3](./src/main/resources/templates/pictures/Board%20%203x3%20Win.png)
  - On a 10x10 board, victory occurs with 5 adjacent symbols in a straight line,
