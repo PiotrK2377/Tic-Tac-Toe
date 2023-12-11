@@ -1,4 +1,5 @@
 # TIC - TAC - TOE
+The game has 2 versions: displayed in the console and with a graphical interface using JavaFX.
 
 ## 1.Project goal:
  - Creating a simple game of tic-tac-toe.
