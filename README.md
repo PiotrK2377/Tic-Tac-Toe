@@ -15,3 +15,5 @@ The game has 2 versions: displayed in the console and with a graphical interface
  - The New Game button starts a new game with an initial message about choosing a board size,
  - Exit Game button closes the application,
  - Scoreboard displays the player's counted victories.
+
+![Algorithm schema](./pictures/Board%20%203x3%20Win.png)
