@@ -16,4 +16,4 @@ The game has 2 versions: displayed in the console and with a graphical interface
  - Exit Game button closes the application,
  - Scoreboard displays the player's counted victories.
 
-![Algorithm schema](./pictures/Board%20%203x3%20Win.png)
+![Algorithm schema](./main/src/main/resources/templates/pictures/Board%20%203x3%20Win.png)
