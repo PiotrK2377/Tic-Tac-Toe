@@ -27,6 +27,6 @@ The game has 2 versions: displayed in the console and with a graphical interface
 
 ## 4.Setup
  - Open a terminal on your computer.
- - Select the directory where you will copy the repository with the command:'cd path/to/your/directory'
+ - Select the directory where you will copy the repository with the command: `cd path/to/your/directory`
  - Type the git clone command and paste the URL of the repository: 'git clone https://github.com/PiotrK2377/Tic-Tac-Toe.git'
 
